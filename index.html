@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <script src="./js/java.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Vegetable</h1>
+            <ul class="nav-links" id="nav-links">
+                <a href="###">Home</a>
+                <a href="###">About</a>
+                <a href="###">Service</a>
+                <a href="###">Menu</a>
+            </ul>
+            <img src="./img/menubar.svg" alt="" class="menubar" id="menubar">
+
+        </nav>
+        <div class="header_main">
+
+        </div>
+
+    </header>
+    <div class="main_section">
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="https://picsum.photos/200/300" alt=""></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/250/300" alt=""></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/255/300" alt=""></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/257/300" alt=""></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/260/300" alt=""></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/266/300" alt=""></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/270/300" alt=""></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/277/300" alt=""></div>
+                <div class="swiper-slide"><img src="https://picsum.photos/280/300" alt=""></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            <div class="autoplay-progress">
+                <svg viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="20"></circle>
+                </svg>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        const progressCircle = document.querySelector(".autoplay-progress svg");
+        const progressContent = document.querySelector(".autoplay-progress span");
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            on: {
+                autoplayTimeLeft(s, time, progress) {
+                    progressCircle.style.setProperty("--progress", 1 - progress);
+                    progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
